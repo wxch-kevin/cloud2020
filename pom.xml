@@ -15,6 +15,10 @@
       <module>cloud-eureka-server7002</module>
     <module>cloud-provider-payment8002</module>
       <module>cloud-provider-payment8004</module>
+    <module>cloud-consumerzk-order80</module>
+    <module>cloud-providerconsul-payment8006</module>
+    <module>cloud-consumerconsul-order80</module>
+      <module>cloud-consumer-feign-order80</module>
   </modules>
   <packaging>pom</packaging>
 
@@ -45,11 +49,30 @@
     <java.version>1.8</java.version>
     <spring-cloud.version>Hoxton.SR8</spring-cloud.version>
     <zookeeper.version>2.2.3.RELEASE</zookeeper.version>
+    <start.version>2.3.3.RELEASE</start.version>
+    <consul.version>2.2.2.RELEASE</consul.version>
   </properties>
 
 
   <dependencyManagement>
     <dependencies>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-openfeign</artifactId>
+        <version>2.2.1.RELEASE</version>
+      </dependency>
+      <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-consul-discovery -->
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-consul-discovery</artifactId>
+        <version>${consul.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+        <version>${start.version}</version>
+      </dependency>
       <dependency>
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-starter-zookeeper-discovery</artifactId>
